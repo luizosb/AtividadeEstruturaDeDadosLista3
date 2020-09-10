@@ -1,0 +1,73 @@
+package main;
+
+import java.util.Scanner;
+
+import listaComPilha.lista1;
+import listaComPilha.pilha1;
+
+public class PrincipalClasse {
+
+	public static void main(String[] args) {
+		
+		int op = 0;
+		int e = 0;
+		int retirado = 0;
+		lista1 lista = new lista1();
+		pilha1 pilha = new pilha1();
+		Scanner sc = new Scanner(System.in);
+		while (op != 9) {
+			System.out.println("=====================================================" 
+					+ "\nDigite a opção desejada"
+					+ "\n1 - Percorrer a lista" 
+					+ "\n2 - Remover item da pilha para a lista" 
+					+ "\n3 - Remover item da lista para a pilha"
+					+ "\n4 - Zerar lista"
+					+ "\n5 - Adicionar a lista"
+					+ "\n6 - Adicionar a pilha"
+					+ "\n7 - Percorrer a pilha"
+					+ "\n8 - Zerar a pilha"
+					+ "\n9 - Sair da aplicação"
+					+ "\n=====================================================");
+			op = sc.nextInt();
+			switch (op) {
+			case 1:
+				lista.percorrerALista();
+				break;
+			case 2:
+				retirado = pilha.removerElemento();
+				lista.adicionarElemento(retirado);
+				break;
+			case 3:
+				retirado = lista.removerElemento();
+				pilha.adicionarElemento(retirado);
+				break;
+			case 4:
+				lista.zerarLista();
+				break;
+			case 5:
+				System.out.print("Digite o número que deseja incluir na lista: ");
+				e = sc.nextInt();
+				lista.adicionarElemento(e);
+				break;
+			case 6:
+				System.out.print("Digite o número que deseja incluir na pilha: ");
+				e = sc.nextInt();
+				pilha.adicionarElemento(e);
+				break;
+			case 7:
+				pilha.percorrerALista();
+				break;
+			case 8:
+				pilha.zerarLista();
+				break;
+			case 9:
+				System.out.println("OPERAÇÃO FINALIZADA !");
+				break;
+			default:
+				System.out.println("OPÇÃO INVÁLIDA");
+				break;
+			}
+		}
+	}
+
+}
